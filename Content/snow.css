@@ -1,0 +1,54 @@
+
+
+
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+        img.bg {
+                left: 50%;
+                margin-left: -512px;   /* 50% */
+        }
+}
+
+
+.bar {
+background-color: #111;
+color: #f0f0f0;
+box-shadow: 0px 0px 2px #333;
+line-height: 25px;
+padding: 0px 20px;
+opacity: 0.7;
+}
+
+.bar:hover {
+opacity: 1;
+}
+
+.bar a {
+color: #DDD;
+}
+
+.bar a:hover {
+color: #FFFFFF;
+}
+
+a { color: #FFFFFF; text-decoration: none; }
+
+a:hover { color: #8c310e; }
+
+#canvas {
+border: 1px solid black;
+position: absolute;
+z-index: 10000;
+}
+
+
+#flake {
+color: #fff;
+position: absolute;
+font-size: 25px;
+top: -50px;
+}
+
+#page {
+position: relative;
+}

@@ -1,0 +1,43 @@
+﻿@{
+    
+    if(WebSecurity.IsAuthenticated){
+        
+    }
+    else {
+         Response.Redirect("~/Account/login");
+    }
+     Layout = "~/admin/_SiteLayout.cshtml";
+         var db = Database.Open("Bases");
+            var mebels = db.Query("SELECT * FROM GuestBook ");
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <table class="table table-striped">
+<tr>
+ <td>Ид</td>
+<td>Имя</td>
+<td>Текст</td>
+<td>Дата</td>
+
+</tr>
+          @foreach (var item in mebels){
+            <tr>
+<td>@item.id</td>
+    <td>@item.Person</td>
+                <td>@item.Text "@item.IdMebel"</td>
+                <td>@item.Data</td>
+                <td> <td><a href="~/admin/GuestBookItem/@item.id"> Изменить</a></td></td>
+           
+       
+</tr>
+}
+</table>
+    </body>
+</html>

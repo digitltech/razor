@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/admin/_SiteLayout.cshtml";
+    Page.Title = "About";
+        if(WebSecurity.IsAuthenticated){
+        
+    }
+    else {
+         Response.Redirect("~/Account/login");
+    }
+}
+
+<div class="row">
+    <hgroup class="title">
+    <h1>О программе</h1>
+</hgroup>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+     <p>
+       E-Shop - market ver 1.0.0.0
+    </p>
+
+    <p>
+  &copy; <a href="http://digitltech.ru">Digital Tech</a> 
+    </p>
+
+    <p>
+     <a href="mailto://admin@digitltech.ru">написать в тех поддержку</a>
+    </p>
+    </div>
+</div>
+
+   
+

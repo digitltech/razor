@@ -1,0 +1,45 @@
+﻿@{
+    
+    if(WebSecurity.IsAuthenticated){
+        
+    }
+    else {
+         Response.Redirect("~/Account/login");
+    }
+     Layout = "~/admin/_SiteLayout.cshtml";
+         var db = Database.Open("bd");
+            var mebels = db.Query("SELECT * FROM Product ");
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <table class="table table-striped">
+<tr>
+<td>Артикул</td>
+<td>Наименование</td>
+<td>Исполнение</td>
+<td>цена</td>
+    <td>цена2</td>
+<td>Изображение</td>
+    <td></td>
+</tr>
+          @foreach (var item in mebels){
+            <tr>
+<td>@item.id</td>
+    <td>@item.Name</td>
+                <td>@item.Name2</td>
+                <td>@item.Price</td>
+  <td>@item.Price2</td>
+                <td><img src="~/@item.imgid" alt="~/@item.Name" width=60px; height=40px;></td>
+                 <td><a href="~/admin/CatalogItem/@item.id"> Изменить</a></td>
+</tr>
+}
+</table>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+﻿@{
+    
+    if(WebSecurity.IsAuthenticated){
+        
+    }
+    else {
+         Response.Redirect("~/Account/login");
+    }
+     Layout = "~/admin/_SiteLayout.cshtml";
+         var db = Database.Open("Bases");
+            var orders = db.Query("SELECT * FROM orders ");
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <table class="table table-striped">
+<tr>
+<td>Дата</td>
+<td>Товар</td>
+<td>Покупатель</td>
+<td>Телефон</td>
+<td>Город</td>
+<td>Емаил</td>
+<td>Адрес</td>
+    <td>Стоимость заказа</td>
+<td>Статус</td>
+</tr>
+          @foreach (var item in orders){
+            <tr>
+<td>@item.Data</td>
+    <td>@item.IdMebel</td>
+                <td>@item.Costumers</td>
+                <td>@item.Tel</td>
+                <td>@item.city</td>
+                <td>@item.email</td>
+                <td>@item.adres</td>
+                <td>@item.price</td>
+                <td>@item.status</td>
+                
+                 <td><a href="~/admin/CatalogItem/@item.id"> </a></td>
+</tr>
+}
+</table>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/admin/_SiteLayout.cshtml";
+    Page.Title = "Home Page";
+
+    if(WebSecurity.IsAuthenticated){
+        
+    }
+    else {
+         Response.Redirect("~/Account/login");
+    }
+}
+
+<h3>Панель управления</h3>
+
+<div class="row">
+    <div class="col-md-10">
+    <a href="~/admin/CatalogList">Каталог</a>
+    </div>
+</div>

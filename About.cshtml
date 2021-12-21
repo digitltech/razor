@@ -1,0 +1,121 @@
+﻿@{
+       Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Сведения о нас";
+    Page.Key="Производство мягкой мебели, Мебельная фабрика, Мягкая мебель на заказ";
+    Page.Description="Фабрика мебели Buona.";
+}
+
+
+<meta name="description" content="Интернет магазин мягкой мебели, мебельная фабрика Buona, производство мягкой мебели,мебель на заказ" />
+<meta name="keywords" content="Интернет магазин мягкой мебели, Мебельная фабрика Buona, мягкая мебель, купить диван" />
+
+<style type="text/css">
+    img[tabindex="6"] {
+        cursor: zoom-in;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+        img[tabindex="6"]:focus {
+            top: 300px;
+            left: 350px;
+            z-index: 10;
+            border-color: #808080;
+            position: fixed;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            -webkit-transform: rotate(-3deg) scale(2.5);
+            -moz-transform: rotate(-3deg) scale(2.5);
+            -o-transform: rotate(-3deg) scale(2.5);
+            -ms-transform: rotate(-3deg) scale(2.5);
+            cursor: zoom-out;
+        }
+
+
+            img[tabindex="6"]:focus, /* убрать строку, если не нужно, чтобы при клике на увеличенное фото, оно возвращалось в исходное состояние */
+            img[tabindex="6"]:focus ~ * {
+                pointer-events: none;
+                cursor: zoom-out;
+            }
+</style>
+<div class="row">
+
+ 
+    <div class="col-md-6">
+        <p>Мебельная фабрика <span style="font-weight: 600">«Buona»</span> специализируется на производстве мебели для гостиной, мебели для дома, мебели для спальни. Мы производим качественную мебель для комфортного проживания в разных стилях.  Нашу фабрику отличают современность и технологичность процесса производства и самое высокое качество продукции. За время своей работы мы заслужили уважение и доверие наших покупателей</p>
+            
+        <div class="modal fade" id="patent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+                    <img src="~/Content/img/patent.png" width="580" height="850"/>
+            </div>
+        </div>
+        <div class="modal fade" id="Cer1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+                    <img src="~/Content/img/cer1.jpg" width="580" height="850"/>
+            </div>
+        </div>
+        <div class="modal fade" id="Cer2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+                <img src="~/Content/img/cer2.jpg" width="580" height="850" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+         <img src="~/Content/images/patent.png" width="100" height="150" tabindex="6" />
+        <img src="~/Content/images/cer1.jpg" width="100" height="150" tabindex="6" />
+        <img src="~/Content/images/cer2.jpg" width="100" height="150" tabindex="6" />
+
+    </div>
+
+ 
+    <div class="col-md-12">
+        <div><p>Мы будем рады сотрудничеству с региональными представителями, а также мебельными центрами и выставочными салонами мебели во всех областях России.</p></div>
+
+        <div><p>Мягкую мебель компании <span style="font-weight: bold">«Buona»</span> отличает не только надежность, практичность и удобство. Одним из основных достоинств Нашей продукции является многообразие цветов и текстур тканей, отличающиеся красотой и простотой в уходе, Мы создаем мебель разнообразных образов и настроений: классическую, строгую или ультрамодную и необычную; приглушенных, спокойных тонов или ярких и контрастных сочетаний.</p></div>
+
+        <div><p>На нашем сайте представлен подробный каталог классической мебели. Не выходя из дома или офиса, Вы можете ознакомиться с модельным рядом компании <span style="font-weight: bold">«Buona»</span>, определиться с цветовым решением и узнать технические характеристики заинтересовавшей Вас модели. Однако, если у Вас есть немного свободного времени, Мы рекомендуем посетить фирменные салоны продаж. Здесь выбрать для себя подходящие диваны и кресла Вам помогут опытные консультанты.</p></div>
+
+        <div><p>Покупая мягкую мебель фабрики <span style="font-weight: bold">«Buona»</span>, будьте уверены, что приобретаете не просто хорошую мебель, а мебель, над созданием которой трудились лучшие специалисты своего дела.</p></div>
+        <img src="~/Content/images/proiz/215.jpg" height="250" width="300" />
+        <img src="~/Content/images/proiz/5137.jpg" height="250" width="300" />
+        <img src="~/Content/images/proiz/fabrika-mebeli.jpg" height="250" width="300" />
+    </div>
+    </div>
+
+  
+<div id="scrollup">
+    <img src="~/images/up.png" class="up" alt="Прокрутить вверх" />
+</div>
+<script>
+window.onload = function () { // после загрузки страницы
+
+    var scrollUp = document.getElementById('scrollup'); // найти элемент
+
+    scrollUp.onmouseover = function () { // добавить прозрачность
+        scrollUp.style.opacity = 0.3;
+        scrollUp.style.filter = 'alpha(opacity=30)';
+    };
+
+    scrollUp.onmouseout = function () { //убрать прозрачность
+        scrollUp.style.opacity = 0.5;
+        scrollUp.style.filter = 'alpha(opacity=50)';
+    };
+
+    scrollUp.onclick = function () { //обработка клика
+        window.scrollTo(0, 0);
+    };
+
+    // show button
+
+    window.onscroll = function () { // при скролле показывать и прятать блок
+        if (window.pageYOffset > 0) {
+            scrollUp.style.display = 'block';
+        } else {
+            scrollUp.style.display = 'none';
+        }
+    };
+};</script>

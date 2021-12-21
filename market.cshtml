@@ -1,0 +1,301 @@
+﻿@{
+         Layout = "~/_MarketLayout.cshtml";
+             var db = Database.Open("bd");
+                 Page.Title = "Интернет магазин «Buona» фабрика мягкой мебели – производство г. Ульяновск";
+    Page.Key="Buona mebel, фабрика мебели г. Ульяновск, мягкая мебель от производителя, мебель Ульяновск, каталог мебели";
+    Page.Description="Buona - фабрика мягкой мебели г. Ульяновск";
+    
+  
+}
+		<script type="text/javascript" src="~/store/lib/jquery-1.3.min.js"></script>
+		<script type="text/javascript" src="~/store/lib//jquery.sliderkit.1.4.js"></script>
+		<!--<script type="text/javascript" src="../lib/js/jquery.sliderkit.1.4.min.js"></script>-->
+		<script type="text/javascript" src="~/store/lib/jquery.easing.1.3.min.js"></script>
+		<script type="text/javascript" src="~/store/lib/jquery.mousewheel.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-core.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-demos.css" media="screen, projection" />
+
+		<!-- Site styles -->
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-sit1e.css" media="screen, projection" />
+	<script type="text/javascript">
+			jQuery(window).load(function(){ //jQuery(window).load() must be used instead of jQuery(document).ready() because of Webkit compatibility				
+				
+				// Photo slider > Minimal
+				jQuery(".photoslider-mini").sliderkit({
+					auto:false,
+					panelbtnshover:true
+				});
+					});	
+                </script>
+<div class="row catalog" >
+    <p>Мебельное производство Buona предлагает широкий ассортимент мебели высшего качества по доступным ценам. Мебель от производителя станет настоящим украшением вашего дома или офиса и действительно стоящим и надежным приобретением. За разумную цену вы сможете приобрести стильную мебель, которая отличается оригинальным дизайном и изготавливается только из лучших материалов, соответствует всем стандартам качества и требованиям эстетики. Покупая мягкую мебель фабрики «Buona», будьте уверены, что приобретаете не просто хорошую мебель, а мебель, над созданием которой трудились лучшие специалисты своего дела.</p>
+    @{var catalog=db.Query("SELECT * FROM Product ").ToList();}
+      @foreach (var i in catalog)
+    
+    {
+<div class="col-md-4">
+  
+         <div class="wrapper">
+  <p class="name">@i.Name</p>
+     <p class="name2">@i.Name2</p>
+     <i class="@i.znak"></i>
+ 
+     <img src="~/@i.imgid" class="foto">
+     <p class="price">Цена от <span>@string.Format("{0:0,0}", i.Price2)</span></p>
+     <p class="price2">от @string.Format("{0:0,0}", i.Price)</p>
+     <div class="but">
+      <button type="button" class="btn btn-success op" data-toggle="modal" data-target="#@i.id">Описание</button>
+         <div class="modal fade" id="@i.id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width: 850px; height: 800px;">
+    <div class="modal-content" style="height: 800px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@i.Name</h4>
+      </div>
+      <div class="modal-body" style="height: 650px;">
+          @if(i.img!=null){
+    var img = db.QuerySingle("Select * FROM imd Where id=@0",i.img); 
+           <div class="sliderkit photoslider-mini">
+					<div class="sliderkit-panels">
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a href="#" title="Previous"><img src="~/Images/slider-arrow-left.gif"></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a href="#" title="Next"><img src="~/Images/slider-arrow-right.gif"></a></div>
+
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img1" alt="[Alternative text]" /></a>
+						</div>
+                        @if (img.img2!=null) {
+                            <div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img2" alt="[Alternative text]" /></a>
+						</div>
+                        }
+                              @if (img.img3!=null) {
+                            <div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img3" alt="[Alternative text]" /></a>
+						</div>
+                        }
+						                @if (img.img4!=null) {
+                            <div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img4" alt="[Alternative text]" /></a>
+						</div>
+                        }
+						
+				
+					</div>
+				</div>
+      }
+   <div class="row">
+
+
+
+     <div class="col-md-5 text-left">
+         <p>@i.Descriptions</p>
+           <p class="text-center" style="font-weight: 600;font-size:16pt;">
+                        от  <span >@string.Format("{0:0,0}",i.Price) </span>
+
+                    </p>
+   
+       
+       
+
+    </div>
+  
+    <div class="col-md-7">
+          <h4 style="color:#ffffff"></h4>
+        <table class="table">
+            <tr>
+                <td style="width: 50%"><p style="font-weight:bold;">Общие габариты </p></td>
+                <td><p>@i.Gabarit</p> </td>
+         
+            </tr>
+                  <tr>
+                <td><p style="font-weight:bold;">Спальное место </p></td>
+                <td><p>@i.GabaritSpal</p> </td>
+         
+            </tr>
+                       <tr>
+                <td><p style="font-weight:bold;">Механизм </p></td>
+                <td><p>@i.Mehanizm</p> </td>
+         
+            </tr>
+            
+          <tr>
+                <td><p style="font-weight:bold;">Примечание</p></td>
+                <td><p>@i.Dop</p> </td>
+         
+            </tr>
+          
+          
+         
+           
+            <tr>
+                <td>
+                   <a href="http://furor-tkani.ru/catalog/" data-toggle="tooltip"target="_blank" class = "btn btn-success" title="Заказать">Выбор ткани</a>
+                </td>
+                 <td>
+                     
+               <button type="button" class="btn btn-danger" data-toggle="modal" data-dismiss="modal" data-target="#@i.OrderID">Заказать</button>
+                </td>
+                <td>
+                   
+        
+           
+
+
+<!-- Modal -->
+
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+         
+   </div>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-danger zk" data-toggle="modal" data-target="#@i.OrderID">Заказать</button>
+            <div class="modal fade" id="@i.OrderID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@i.Name </h4>
+      </div>
+           <form class="form-horizontal" role="form" method="post">
+      <div class="modal-body">
+    
+             
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Имя</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" id="name" placeholder="Имя">
+    </div>
+  </div>
+                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Телефон</label>
+    <div class="col-sm-10">
+      <input type="tel" class="form-control" name="tel" id="tel" placeholder="8 (***)***-**-**">
+    </div>
+  </div>
+                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Город</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="name" id="city" placeholder="город">
+    </div>
+  </div>
+                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" name="email" id="email" placeholder="электронная почта">
+    </div>
+  </div>
+                                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Ткани</label>
+    <div class="col-sm-10">
+   <textarea class="form-control" name="tkan" rows="3" id="Tkan"></textarea>
+    </div>
+  </div>
+                      <div class="form-group">
+                                          <label for="inputEmail3" class="col-sm-3 control-label">Защита от спама</label>
+                                        <div class="col-sm-8">                                           
+                                         <div class="g-recaptcha" data-sitekey="6LdGDhcTAAAAAFaa67MQTvJUg1N_tB1oAeF1ElZZ"></div>
+                                        </div>
+                                        
+
+
+                                    </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      
+    </div>
+  </div>
+                        @if (IsPost && Validation.IsValid()) {
+   var name = Request["name"];
+   
+   
+
+               var tel = Request["tel"];
+       
+        var email = Request["email"];
+        var tkan = Request["Tkan"];
+
+      //  var dostavka="lf";
+     //   var status = "новый";
+     //   var insert = "INSERT INTO orders (id, data, idMebel, Costumers, tel, city,email,adres,price,Dostavka,status)" + "Values (@0,@1,@2,@3,@4,@5,@6,@7,@8,@9,@10)";
+
+//db.Execute(insert, id,dataOrder,item.id,name,tel,city,email,shipping,item.Price,dostavka,status);
+//
+                    
+ 
+
+        //Если ошибок нет, попробуйте обработать заказ
+        var body = "Поступил новый заказ " +  " шт. " + i.Name +" "+"!<br/>";
+         body += "Покупатель " + name + " Телефон " + tel + "!<br/>";
+         body += " Email " + email + "Ткань " + tkan + "!<br/>";
+
+        var customerEmail = "help.it@bk.ru";
+    
+        body += "Сумма заказа" + i.Price +".<br/>";
+        body += "Сообщение отправлено автоматически <br/>" ;
+
+        //SMTP-конфигурация для Hotmail
+        WebMail.SmtpServer = "smtp.mail.ru";
+        WebMail.SmtpPort = 25;
+        WebMail.EnableSsl = true;
+
+        //Введите учетные данные Hotmail как имя пользователя и пароль, а также адрес &quot;От&quot; для адреса электронной почты
+              WebMail.UserName = "buona-mebel@mail.ru";
+                        WebMail.Password = "buonamebel1991";
+                        WebMail.From = "buona-mebel@mail.ru";
+
+        if (WebMail.UserName.IsEmpty() || WebMail.Password.IsEmpty() || WebMail.From.IsEmpty()) {
+            Response.Redirect("~/OrderSuccess?NoEmail=1");
+        } 
+        else {
+            try {
+                WebMail.Send(to: customerEmail, subject: " Buona Mebel — новый заказ", body: body);
+                Response.Redirect("~/OrderSuccess");
+            } catch {
+                ModelState.AddFormError("Произошла ошибка, сейчас заказ не удается обработать");
+            }
+        }
+    }
+          
+    
+
+      
+   
+      </div>
+      <div class="modal-footer">
+      <button type="submit" class="btn btn-default">Отправить</button>
+    
+      </div>
+               </form>
+    </div>
+  </div>
+</div>
+     </div>
+  
+ </div>
+    
+
+</div>
+                        }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

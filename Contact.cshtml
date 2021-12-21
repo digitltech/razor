@@ -1,0 +1,60 @@
+﻿@{
+          Layout = "~/_SiteLayout.cshtml";
+  Page.Title = "«Buona» фабрика мягкой мебели – производство г. Ульяновск";
+    Page.Key="Buona mebel, фабрика мебели г. Ульяновск, мягкая мебель от производителя, мебель Ульяновск, каталог мебели";
+    Page.Description="Buona - фабрика мягкой мебели г. Ульяновск";
+}
+
+
+<div class="row"></div>
+
+        <address>
+    
+
+    Фабрика мебели Buona<br />
+    Адрес: 432067, г. Ульяновск, 2-ой проезд Инженерный, 2"Ш"<br />
+    <abbr title="Phone">тел:/факс:</abbr>
+     8(8422) 27-99-26 , 8 (937) 033-92-92
+    
+</address>
+<script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=uSrV2r5ydp7PSrcxplob8_Avpmrsl34l&width=600&height=450"></script>
+<address>
+    <strong>Отдел продаж:</strong>   <a href="mailto:buona-mebel@mail.ru">buona-mebel@mail.ru</a><br />
+
+</address>
+
+
+        <div id="scrollup">
+    <img src="~/images/up.png" class="up" alt="Прокрутить вверх" />
+</div>
+</div>
+<script>
+window.onload = function () { // после загрузки страницы
+
+    var scrollUp = document.getElementById('scrollup'); // найти элемент
+
+    scrollUp.onmouseover = function () { // добавить прозрачность
+        scrollUp.style.opacity = 0.3;
+        scrollUp.style.filter = 'alpha(opacity=30)';
+    };
+
+    scrollUp.onmouseout = function () { //убрать прозрачность
+        scrollUp.style.opacity = 0.5;
+        scrollUp.style.filter = 'alpha(opacity=50)';
+    };
+
+    scrollUp.onclick = function () { //обработка клика
+        window.scrollTo(0, 0);
+    };
+
+    // show button
+
+    window.onscroll = function () { // при скролле показывать и прятать блок
+        if (window.pageYOffset > 0) {
+            scrollUp.style.display = 'block';
+        } else {
+            scrollUp.style.display = 'none';
+        }
+    };
+};</script>
+

@@ -1,0 +1,162 @@
+﻿@{
+         Layout = "~/_MarketLayout.cshtml";
+             var db = Database.Open("bd");
+    
+  
+}
+		<script type="text/javascript" src="~/store/lib/jquery-1.3.min.js"></script>
+		<script type="text/javascript" src="~/store/lib//jquery.sliderkit.1.4.js"></script>
+		<!--<script type="text/javascript" src="../lib/js/jquery.sliderkit.1.4.min.js"></script>-->
+		<script type="text/javascript" src="~/store/lib/jquery.easing.1.3.min.js"></script>
+		<script type="text/javascript" src="~/store/lib/jquery.mousewheel.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-core.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-demos.css" media="screen, projection" />
+
+		<!-- Site styles -->
+		<link rel="stylesheet" type="text/css" href="~/store/lib/sliderkit-sit1e.css" media="screen, projection" />
+	<script type="text/javascript">
+			jQuery(window).load(function(){ //jQuery(window).load() must be used instead of jQuery(document).ready() because of Webkit compatibility				
+				
+				// Photo slider > Minimal
+				jQuery(".photoslider-mini").sliderkit({
+					auto:false,
+					panelbtnshover:true
+				});
+					});	
+                </script>
+<div class="row">
+    @{var catalog=db.Query("SELECT * FROM Product ").ToList();}
+      @foreach (var i in catalog)
+    
+    {
+<div class="col-md-4">
+  
+         <div class="wrapper">
+  <p class="name">@i.Name</p>
+     <p class="name2">@i.Name2</p>
+     <i class="akc"></i>
+ 
+     <img src="~/@i.imgid" class="foto">
+     <p class="price">Цена от<span> @i.Price р.</span></p>
+     <p class="price2">от @i.Price2 р.</p>
+     <div class="but">
+      <button type="button" class="btn btn-success op" data-toggle="modal" data-target="#@i.id">Описание</button>
+         <div class="modal fade" id="@i.id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width: 800px; height: 800px;">
+    <div class="modal-content" style="height: 800px;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@i.Name</h4>
+      </div>
+      <div class="modal-body" style="height: 650px;">
+          @if(i.img!=null){
+    var img = db.QuerySingle("Select * FROM imd Where id=@0",i.img); 
+           <div class="sliderkit photoslider-mini">
+					<div class="sliderkit-panels">
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-prev"><a href="#" title="Previous"><span>Previous</span></a></div>
+						<div class="sliderkit-btn sliderkit-go-btn sliderkit-go-next"><a href="#" title="Next"><span>Next</span></a></div>
+
+						<div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img1" alt="[Alternative text]" /></a>
+						</div>
+                        @if (img.img2!=null) {
+                            <div class="sliderkit-panel">
+							<a href="#" title="[Link title text]"><img src="~/@img.img2" alt="[Alternative text]" /></a>
+						</div>
+                        }
+						
+				
+					</div>
+				</div>
+      }
+   <div class="row">
+   <div class="col-md-6">
+   <p>@i.Descriptions</p>
+             <p>@i.Descriptions</p>
+       @i.Property
+   </div>
+          <div class="col-md-6">
+    
+          </div>
+   </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-danger zk" data-toggle="modal" data-target="#@i.OrderID">Заказать</button>
+            <div class="modal fade" id="@i.OrderID" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">@i.Name </h4>
+      </div>
+      <div class="modal-body">
+    
+                <form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">ФИО*</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="name" placeholder="ФИО">
+    </div>
+  </div>
+                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Телефон*</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="tel" placeholder="tel">
+    </div>
+  </div>
+                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Эл. Почта*</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" id="email" placeholder="электронная почта">
+    </div>
+  </div>
+                                      <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Артикул ткани</label>
+    <div class="col-sm-10">
+   <textarea class="form-control" rows="3" id="Tkan"></textarea>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Отправить</button>
+    </div>
+  </div>
+</form>
+      
+   
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+    
+      </div>
+    </div>
+  </div>
+</div>
+     </div>
+  
+ </div>
+    
+
+</div>
+      }
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->

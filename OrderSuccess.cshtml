@@ -1,0 +1,19 @@
+﻿@{
+      Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Заказ обработан!";
+    var emailNotSetUp = Request["NoEmail"] != null;
+}
+
+
+
+@if (emailNotSetUp) {
+    <div class="message info">
+        <h2>Настройте почту</h2>
+        <p>Укажите имя пользователя и пароль для Hotmail и адрес &quot;От&quot; в Order.cshtml для отправки почты</p>
+    </div>
+} else {
+    <div class="message order-success">
+        <h2>Спасибо за заказ!</h2>
+        <p>Мы обрабатываем ваш заказ, вам отправлено сообщение электронной почты с подтверждением. Спасибо за заказ.</p>
+    </div>
+}

@@ -1,0 +1,283 @@
+﻿@{
+          Layout = "~/_SiteLayout.cshtml";
+  Page.Title = "«Buona» фабрика мягкой мебели – производство г. Ульяновск";
+
+    Page.Key="Buona mebel, фабрика мебели г. Ульяновск, мягкая мебель от производителя, мебель Ульяновск, каталог мебели";
+    Page.Description="Buona - фабрика мягкой мебели г. Ульяновск";
+}
+
+
+<div class="row">
+<br>
+        <p class="text-center"><img src="~/images/sotr.png" height="100" width="100"><br>
+   <h3 class="text-center">Почему работают с нами:</h3>
+    
+    <div class="row">
+     <div class="col-md-6">
+     <table>
+     <tr>
+     <td><img src="~/Images/1.jpg" /> </td>
+         <td> Более 10 лет успешной работы сформировали принцип сотрудничества основанные на доверии и опыте</td>
+     </tr>
+          <tr>
+    
+     </tr>
+     </table>
+
+           <table>
+     <tr>
+     <td><img src="~/Images/2.jpg" /> </td>
+         <td>   <p>
+             Поддерживаем и развиваем круг наших партнеров на территории России и стран СНГ
+         </p></td>
+     </tr>
+          <tr>
+    
+     </tr>
+     </table>
+
+     
+       
+       
+         
+     
+     </div>
+             <div class="col-md-6">
+                    <table>
+     <tr>
+     <td><img src="~/Images/3.jpg" /> </td>
+         <td> <p>
+            Мы занимаем достойное место на рынке мягкой мебели
+         </p></td>
+     </tr>
+          <tr>
+    
+     </tr>
+     </table>
+
+           <table>
+     <tr>
+     <td><img src="~/Images/4.jpg" /> </td>
+         <td>      <p>
+            Создаем благоприятные условия для работы с учетом особенностей каждого региона
+         </p>
+         </td>
+     </tr>
+          <tr>
+    
+     </tr>
+     </table>
+
+      
+        
+         
+    
+    
+     
+     </div>
+         
+<div style="height: 140px;"></div>
+    
+    </div>
+    <div class="row">
+      <h3 class="text-center">Преимущества работы с нами:</h3>
+        <div class="col-md-6">
+        <ul style="list-style-image: url(images/li.png)">
+        <li>разнообразие стилей, дизайнов и примняемых материалов</li>
+            <li>высококачественная продукция</li>
+            <li>гибкая ценовая политика и конкурентные оптовые цены</li>
+            <li>дополнительные скидки в зависимости от объема продаж</li>
+            <li>контроль качества и сроков исполнения продукции</li>
+        </ul>
+        </div>
+        <div class="col-md-6">
+        <ul style="list-style-image: url(images/li.png)">
+        <li>минимальные сроки поставок</li>
+             <li>работа со всеми регионами России</li>
+             <li>осуществляется доставка до транспортной компании или самовывоз со склада фабрики</li>
+             <li>возможность обсуждения индивидуальных условий сотрудничества</li>
+        </ul>
+        </div>
+ 
+      </div>
+    <div style="height: 50px;"></div>
+
+
+
+
+  
+
+   
+   <h3 class="text-center">Надеемся на взаимовыгодное сотрудничество!</h3>
+    <p class="text-center">С уважением фабрика мягкой мебели «BUONA»<br>
+телефон сот.: <b>8-937-033-92-92</b> ; buona-mebel@mail.ru
+</p>
+    <p class="text-center"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#price">Запросить условия сотрудничества и оптовые цены</button></p>
+    
+
+
+    <div style="margin-bottom: 115px;"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<br>
+
+
+
+                <div class="modal fade" id="price" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content" style="width: 80%; margin: 10%; margin-top: 10px;">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Форма обратной связи</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Ваше Имя</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Имя">
+                                            <div>@Html.ValidationMessage("Name")</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Телефон</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="tel" name="tel" placeholder="8(xxx)xxx-xx-xx">
+                                            <div> @Html.ValidationMessage("tel")</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Город</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="city" name="city" placeholder="Город">
+                                            <div> @Html.ValidationMessage("aderss")</div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control" id="Email" name="Email" placeholder="Email">
+                                            @Html.ValidationMessage("Email")
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-3 control-label">Ваш вопрос</label>
+                                        <div class="col-sm-8">
+                                            <textarea class="form-control" rows="4" id="text" name="text"></textarea>
+                                            <div>@Html.ValidationMessage("text")</div>
+                                        </div>
+                                    </div>
+                
+
+
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-default">Отправить</button>
+
+                                    </div>
+
+
+                                    @{
+
+                                        var response = Request["g-recaptcha-response"];
+
+                                        var name = Request["Name"];
+                                        if (name.IsEmpty()) { }
+                                        else
+                                        {
+
+                                            var email = Request["Email"];
+                                            var tel = Request["Tel"];
+                                            var city = Request["city"];
+                                            var adress = Request["aderss"];
+                                            var text = Request["text"];
+                                            var customerEmail = "buona-mebel@mail.ru";
+                                            //Если ошибок нет, попробуйте обработать заказ
+                                            var body = "Здраствуйте, Я хочу получить прайс  От " + "[" + name + "]" + " телефон " + "[" + tel + "]" + " емаил " + "[" + email + "]" + "<br/>" + "Город" + "[" + city + "]" + "<br/>" + "[" + text + "]" + "<hr />";
+                                            var orderShipping = Request["orderShipping"];
+
+                                            //if (!orderShipping.IsEmpty())
+                                            //{
+                                            //    //Замените символы возврата каретки на HTML-разрывы для HTML-почты
+                                            //    var formattedOrder = orderShipping.Replace("\r\n", "<br/>");
+                                            //    body += "Ваш адрес: <br/>" + formattedOrder + "<br/>";
+                                            //}
+                                            //body += "Сумма заказа" + product.Price * Request["orderQty"].AsDecimal() + ".<br/>";
+                                            body += "Сообщение отправленно автоматически.  Спасибо!<br/>";
+
+
+                                            WebMail.SmtpServer = "smtp.mail.ru";
+                                            WebMail.SmtpPort = 25;
+
+                                            WebMail.UserName = "digital@digitltech.ru";
+                                            WebMail.Password = "QwT123Hz";
+                                            WebMail.From = "digital@digitltech.ru";
+                                            WebMail.EnableSsl = true;
+
+
+                                            if (WebMail.UserName.IsEmpty() || WebMail.Password.IsEmpty() || WebMail.From.IsEmpty())
+                                            {
+                                                Response.Redirect("~/OrderSuccess?NoEmail=1");
+                                            }
+                                            else
+                                            {
+                                              
+                                           
+                                                    try
+                                                    {
+                                                        WebMail.Send(to: customerEmail, subject: "Buona-mabel.ru - система оповещения заказов ", body: body);
+                                                        Response.Redirect("~/?good");
+                                                    }
+                                                    catch
+                                                    {
+                                                        ModelState.AddFormError("Произошла ошибка, сейчас заказ не удается обработать");
+                                                    }
+                                              
+                                            }
+
+
+
+
+                                        }
+                                    }
+
+
+
+
+
+
+
+
+
+
+
+
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
